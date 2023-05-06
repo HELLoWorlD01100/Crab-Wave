@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b40jmw6ynrsuy"]
+
+[ext_resource type="PackedScene" uid="uid://dismdsdmw1uhl" path="res://Scenes/player.tscn" id="1_70h2y"]
+[ext_resource type="Script" path="res://Scenes/RichTextLabel.gd" id="2_1st2i"]
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(10, 10)
+
+[node name="Player" parent="." instance=ExtResource("1_70h2y")]
+position = Vector2(-9, -8)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_1st2i")
