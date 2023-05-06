@@ -2,20 +2,23 @@
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_7xiw8"]
 [ext_resource type="PackedScene" uid="uid://dhygfabpbj46l" path="res://Scenes/player.tscn" id="1_70h2y"]
-[ext_resource type="Texture2D" uid="uid://dhb2fmcyfh0ab" path="res://Sprites/sand.png" id="1_r0pcp"]
+[ext_resource type="Texture2D" uid="uid://d316dddcy7wna" path="res://Sprites/sand.png" id="1_r0pcp"]
 [ext_resource type="Script" path="res://Scripts/RichTextLabel.gd" id="2_5l4ce"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_7xiw8")
 
 [node name="Sand" type="Sprite2D" parent="."]
+show_behind_parent = true
+clip_children = 2
+z_as_relative = false
+position = Vector2(-1, 0)
 texture = ExtResource("1_r0pcp")
 centered = false
-
-[node name="Player" parent="." instance=ExtResource("1_70h2y")]
-position = Vector2(45, 4)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_5l4ce")
+
+[node name="Player" parent="." instance=ExtResource("1_70h2y")]
