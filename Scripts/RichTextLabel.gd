@@ -1,7 +1,7 @@
 extends RichTextLabel
 
 
-@onready var player: Node2D = $Player/CharacterBody2D
+@onready var player: Node2D = get_parent().get_parent().get_node("CharacterBody2D")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -9,4 +9,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if player != null:
+		text = str(player.coins)
+	else: text = "0"

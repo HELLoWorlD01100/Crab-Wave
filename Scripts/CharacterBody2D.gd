@@ -10,6 +10,7 @@ var max_y = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var coins = 0
+
 enum State { MOVE, IDLE }
 @export var state = State.IDLE
 

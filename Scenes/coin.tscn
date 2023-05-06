@@ -1,16 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://2eq74kmot0vh"]
+[gd_scene load_steps=3 format=3 uid="uid://2eq74kmot0vh"]
+
+[ext_resource type="Script" path="res://Scenes/coin.gd" id="1_mim1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gei06"]
 
 [node name="Coin" type="Node2D"]
+script = ExtResource("1_mim1k")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="StaticBody2D"]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 text = "1$"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(11, 12)
 shape = SubResource("RectangleShape2D_gei06")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,10 +1,28 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhygfabpbj46l"]
+[gd_scene load_steps=26 format=3 uid="uid://dhygfabpbj46l"]
 
 [ext_resource type="Texture2D" uid="uid://cjrucv2ptldb2" path="res://Sprites/Crab1.png" id="1_b1x40"]
 [ext_resource type="Script" path="res://Scripts/CharacterBody2D.gd" id="1_qam5l"]
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_qoyyy"]
 [ext_resource type="Texture2D" uid="uid://dfm5e0g0r7f1w" path="res://Sprites/Idle.png" id="3_0ijhw"]
 [ext_resource type="Texture2D" uid="uid://cpgfukfa4dy00" path="res://Sprites/moving.png" id="3_5dmla"]
+[ext_resource type="Texture2D" uid="uid://byvyip0u2qd2t" path="res://Sprites/закопался.png" id="3_k6oi0"]
+[ext_resource type="Script" path="res://Scripts/RichTextLabel.gd" id="7_j45gr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8i64"]
+atlas = ExtResource("3_k6oi0")
+region = Rect2(0, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vutp5"]
+atlas = ExtResource("3_k6oi0")
+region = Rect2(26, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs2yf"]
+atlas = ExtResource("3_k6oi0")
+region = Rect2(52, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7acxf"]
+atlas = ExtResource("3_k6oi0")
+region = Rect2(78, 0, 26, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yat24"]
 atlas = ExtResource("3_5dmla")
@@ -44,6 +62,23 @@ region = Rect2(72, 0, 18, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m2las"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8i64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vutp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs2yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7acxf")
+}],
+"loop": true,
+"name": &"get_down",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yat24")
@@ -146,7 +181,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ph6t0"]
-size = Vector2(18, 16)
+size = Vector2(18, 17)
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_qoyyy")
@@ -156,8 +191,8 @@ script = ExtResource("1_qam5l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_m2las")
-animation = &"go"
-frame = 1
+animation = &"get_down"
+frame_progress = 0.618625
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
@@ -172,7 +207,7 @@ texture = ExtResource("1_b1x40")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(9, 8)
+position = Vector2(9, 8.5)
 shape = SubResource("RectangleShape2D_ph6t0")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
@@ -180,3 +215,12 @@ zoom = Vector2(8, 8)
 limit_smoothed = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+clip_contents = false
+layout_direction = 1
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_j45gr")

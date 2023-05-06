@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxu0balha71s1"]
+[gd_scene load_steps=5 format=3 uid="uid://cxu0balha71s1"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_7xiw8"]
 [ext_resource type="PackedScene" uid="uid://dhygfabpbj46l" path="res://Scenes/player.tscn" id="1_70h2y"]
-[ext_resource type="Texture2D" uid="uid://d316dddcy7wna" path="res://Sprites/sand.png" id="1_r0pcp"]
-[ext_resource type="Script" path="res://Scripts/RichTextLabel.gd" id="2_5l4ce"]
-[ext_resource type="PackedScene" uid="uid://dcpc5p3735uud" path="res://Scenes/wave.tscn" id="5_x405u"]
+[ext_resource type="Texture2D" uid="uid://dhb2fmcyfh0ab" path="res://Sprites/sand.png" id="1_r0pcp"]
+[ext_resource type="PackedScene" uid="uid://2eq74kmot0vh" path="res://Scenes/coin.tscn" id="2_oxtea"]
 
 [node name="World" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_7xiw8")
+
+[node name="Coin" parent="." instance=ExtResource("2_oxtea")]
+position = Vector2(20, 0)
 
 [node name="Sand" type="Sprite2D" parent="."]
 show_behind_parent = true
@@ -16,10 +19,6 @@ z_as_relative = false
 position = Vector2(-1, 0)
 texture = ExtResource("1_r0pcp")
 centered = false
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_5l4ce")
+offset = Vector2(1, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_70h2y")]
