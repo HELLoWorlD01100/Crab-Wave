@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxu0balha71s1"]
+[gd_scene load_steps=6 format=3 uid="uid://cxu0balha71s1"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_7xiw8"]
 [ext_resource type="PackedScene" uid="uid://dhygfabpbj46l" path="res://Scenes/player.tscn" id="1_70h2y"]
 [ext_resource type="Texture2D" uid="uid://d316dddcy7wna" path="res://Sprites/sand.png" id="1_r0pcp"]
 [ext_resource type="Script" path="res://Scripts/RichTextLabel.gd" id="2_5l4ce"]
+[ext_resource type="PackedScene" uid="uid://dcpc5p3735uud" path="res://Scenes/wave.tscn" id="5_x405u"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_7xiw8")
